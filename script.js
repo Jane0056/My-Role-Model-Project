@@ -273,4 +273,25 @@ var swiper = new Swiper(".swiper-panorama", {
                     )
                     :
                     ('')
-      
+      // Append the year and text divs to the list item
+            listItem.appendChild(yearDiv);
+            listItem.appendChild(textDiv);
+
+            // Append the list item to the timeline container
+            timelineContainer.appendChild(listItem);
+        });
+
+        function toggleFullScreen() {
+            var elem = document.documentElement;
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen().catch(err => {
+                        alert(`Error attempting to exit full-screen mode: ${err.message} (${err.name})`);
+                    });
+                }
+            }
+        }
